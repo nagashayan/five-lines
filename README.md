@@ -26,3 +26,10 @@ If you have feedback or comments on this repo don't hesitate to write me a messa
 
 Thank you for checking it out.
 
+# Setup instructions:
+source ~/.bashrc
+nvm install v20.17.0
+nvm use v20.17.0
+npm install -g typescript
+# tsc init
+tsc -w
