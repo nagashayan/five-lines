@@ -14,9 +14,6 @@ enum Tile {
   KEY2, LOCK2
 }
 
-enum RawInput {
-  UP, DOWN, LEFT, RIGHT
-}
 
 let playerx = 1;
 let playery = 1;
@@ -92,39 +89,35 @@ function handleInputs() {
   }
 }
 
-enum Input {
-  RIGHT, LEFT, UP, DOWN
-}
-
-interface Input2 {
+interface Input {
   isRight(): boolean;
   isLeft(): boolean;
   isUp(): boolean;
   isDown(): boolean;
 }
 
-class Right implements Input2 {
+class Right implements Input {
   isRight() { return true; }
   isLeft() { return false; }
   isDown() { return false; }
   isUp() { return false; }
 }
 
-class Left implements Input2 {
+class Left implements Input {
   isRight() { return false; }
   isLeft() { return true; }
   isDown() { return false; }
   isUp() { return false; }
 }
 
-class Up implements Input2 {
+class Up implements Input {
   isRight() { return false; }
   isLeft() { return false; }
   isDown() { return false; }
   isUp() { return true; }
 }
 
-class Down implements Input2 {
+class Down implements Input {
   isRight() { return false; }
   isLeft() { return false; }
   isDown() { return true; }
@@ -132,7 +125,7 @@ class Down implements Input2 {
 }
 
 
-function handleInput(input: Input2) {
+function handleInput(input: Input) {
   if (input.isLeft())
     moveHorizontal(-1);
   else if (input.isRight())
